@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">hw 1.3</string>
+    <string name="title">Комплексная система мониторинга здоровья</string>
+    <string name="name">Ваше ФИО</string>
+    <string name="age">Ваш возраст</string>
+    <string name="save">Сохранить</string>
+    <string name="pressure">Давление</string>
+    <string name="etc">Жизненные показатели</string>
+    <string name="check">Тахикардия</string>
+    <string name="topPressure">Верхнее давление</string>
+    <string name="lowerPressure">Нижнее давление</string>
+    <string name="pulse">Пульс</string>
+    <string name="weight">Вес</string>
+    <string name="steps">Количество шагов</string>
+</resources>
