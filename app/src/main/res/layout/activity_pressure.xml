@@ -21,16 +21,18 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="275dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="292dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="24dp"
         android:text="@string/title"
         android:textAlignment="center"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintHorizontal_bias="0.756"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -52,8 +54,8 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="27dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/topPressure"
+        android:hint="@string/topPressure"
+        android:inputType="number|numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/low"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -64,8 +66,8 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="25dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/lowerPressure"
+        android:hint="@string/lowerPressure"
+        android:inputType="number|numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/bit"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -76,8 +78,8 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="23dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/pulse"
+        android:hint="@string/pulse"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/checkBox"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -97,8 +99,8 @@
         android:layout_width="172dp"
         android:layout_height="45dp"
         android:ems="10"
+        android:hint="date"
         android:inputType="date"
-        android:text="date"
         app:layout_constraintBottom_toTopOf="@+id/savePressure"
         app:layout_constraintEnd_toStartOf="@+id/editText8"
         app:layout_constraintHorizontal_bias="0.5"
@@ -110,8 +112,8 @@
         android:layout_width="172dp"
         android:layout_height="45dp"
         android:ems="10"
+        android:hint="time"
         android:inputType="time"
-        android:text="time"
         app:layout_constraintBottom_toTopOf="@+id/savePressure"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
