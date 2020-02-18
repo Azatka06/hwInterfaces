@@ -2,18 +2,21 @@ package com.example.hw13;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "myApp";
-    ArrayList<String> main = new ArrayList<String>();
+    ArrayList<PatientData> main = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final EditText fio = findViewById(R.id.fio);
         final EditText age = findViewById(R.id.age);
-
 
 
         Button buttonSave = findViewById(R.id.save);
@@ -34,22 +36,24 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, getString(R.string.small), Toast.LENGTH_LONG).show();
                     return;
                 }
-                Log.i(TAG, "Ошибка в формате при нажатии на сохранить");
+
                 try {
-                    PatientData value = new PatientData(fioValue, Integer.parseInt(ageValue));
+                    Integer.parseInt(ageValue);
+
 
                 } catch (Exception ex) {
                     Toast.makeText(MainActivity.this, getString(R.string.toastType), Toast.LENGTH_LONG).show();
+                    Log.i(TAG, "Ошибка в формате при нажатии на сохранить");
                     return;
                 }
 
-                Toast.makeText(MainActivity.this, getString(R.string.saved)+fioValue, Toast.LENGTH_LONG).show();
-                main.add(fioValue);
-                main.add(ageValue);
+                PatientData value = new PatientData(fioValue, Integer.parseInt(ageValue));
+                main.add(value);
+                Toast.makeText(MainActivity.this, getString(R.string.saved) + fioValue, Toast.LENGTH_LONG).show();
+
             }
 
         });
-
 
 
         Button buttonPressure = findViewById(R.id.buttonPressure);
@@ -68,11 +72,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intentEtc = new Intent(MainActivity.this, LifeActivity.class);
-                try {
-                    startActivity(intentEtc);
-                } catch (Exception ex) {
-                    Toast.makeText(MainActivity.this, getString(R.string.error), Toast.LENGTH_LONG).show();
-                }
+                startActivity(intentEtc);
+                Toast.makeText(MainActivity.this, getString(R.string.error), Toast.LENGTH_LONG).show();
+
 
             }
         });

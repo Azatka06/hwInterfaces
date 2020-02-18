@@ -14,37 +14,39 @@ import java.util.ArrayList;
 public class LifeActivity extends AppCompatActivity {
 
     private static final String TAG = "myApp";
-    ArrayList<String> lifeData = new ArrayList<String>();
+    ArrayList<LifeData> lifeData = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_etc);
-        final EditText weidth = findViewById(R.id.weidth);
+        final EditText weight = findViewById(R.id.weidth);
         final EditText steps = findViewById(R.id.steps);
 
         Button saveEtc = findViewById(R.id.saveEtc);
         saveEtc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String weidthValue = weidth.getText().toString();
+                final String weightValue = weight.getText().toString();
                 final String stepsValue = steps.getText().toString();
-                if ((weidthValue.length() == 0) || (stepsValue.length() == 0)) {
+                if ((weightValue.length() == 0) || (stepsValue.length() == 0)) {
                     Toast.makeText(LifeActivity.this, getString(R.string.small), Toast.LENGTH_LONG).show();
                     return;
                 }
-                Log.i(TAG, "Ошибка в формате при нажатии на сохранить");
+
                 try {
-                    PatientData value = new PatientData(weidthValue, Integer.parseInt(stepsValue));
+                    Integer.parseInt(stepsValue);
+                    Integer.parseInt(weightValue);
 
                 } catch (Exception ex) {
                     Toast.makeText(LifeActivity.this, getString(R.string.toastType), Toast.LENGTH_LONG).show();
+                    Log.i(TAG, "Ошибка в формате при нажатии на сохранить");
                     return;
                 }
 
+                    LifeData value = new LifeData(Integer.parseInt(weightValue), Integer.parseInt(stepsValue));
                 Toast.makeText(LifeActivity.this, getString(R.string.saved), Toast.LENGTH_LONG).show();
-                lifeData.add(weidthValue);
-                lifeData.add(stepsValue);
+                lifeData.add(value);
 
             }
         });

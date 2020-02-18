@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class PressureActivity extends AppCompatActivity {
 
     private static final String TAG = "myApp";
-    ArrayList<String> pressureData = new ArrayList<String>();
+    ArrayList<PressureData> pressureData = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,20 +36,21 @@ public class PressureActivity extends AppCompatActivity {
                     Toast.makeText(PressureActivity.this, getString(R.string.small), Toast.LENGTH_LONG).show();
                     return;
                 }
-                Log.i(TAG, "Ошибка в формате при нажатии на сохранить");
+
+
                 try {
-                    PressureData value = new PressureData(Integer.parseInt(topValue), Integer.parseInt(lowValue), Integer.parseInt(bitValue));
+                    Integer.parseInt(topValue);
+                    Integer.parseInt(lowValue);
+                    Integer.parseInt(bitValue);
                 } catch (Exception ex) {
                     Toast.makeText(PressureActivity.this, getString(R.string.toastType), Toast.LENGTH_LONG).show();
+                    Log.i(TAG, "Ошибка в формате при нажатии на сохранить");
                     return;
                 }
 
-
+                PressureData value = new PressureData(Integer.parseInt(topValue), Integer.parseInt(lowValue), Integer.parseInt(bitValue));
                 Toast.makeText(PressureActivity.this, getString(R.string.saved), Toast.LENGTH_LONG).show();
-
-                pressureData.add(topValue);
-                pressureData.add(lowValue);
-                pressureData.add(bitValue);
+                pressureData.add(value);
             }
         });
     }
